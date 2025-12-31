@@ -1,7 +1,6 @@
 let last = { username: "", comment: "", ts: 0 };
 
 export default async function handler(req, res) {
-  // biar TikFinity ga ribet soal CORS
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
@@ -16,6 +15,5 @@ export default async function handler(req, res) {
     return res.status(200).json({ ok: true });
   }
 
-  // GET buat overlay ambil komentar terakhir
   return res.status(200).json(last);
 }
