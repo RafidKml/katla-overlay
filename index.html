@@ -1,35 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <title>KATLA</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="app">
-      <header>
-        <h1>KATLA</h1>
-        <span class="tag">WORD GAME</span>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KATLA Overlay</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="vignette"></div>
+    <div class="noise"></div>
+  </div>
+
+  <main class="stage">
+    <section class="shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="brandTitle">KATLA</div>
+          <div class="brandSub">LIVE WORD GAME</div>
+        </div>
+
+        <div class="status">
+          <span class="pill live">LIVE</span>
+          <span class="pill" id="clock">00:00:00</span>
+          <span class="pill" id="wordsCount">words: -</span>
+        </div>
       </header>
 
-      <main class="card glass">
-        <div id="board"></div>
-        <div id="message"></div>
+      <section class="panel">
+        <div class="left">
+          <div class="hud">
+            <div class="hudTitle">Mode: Overlay</div>
+            <div class="hudDesc">
+              Tebak kata 5 huruf. Input via keyboard fisik atau komentar TikTok.
+            </div>
 
-        <!-- LIKE GATE -->
-        <main class="card glass">
-          <div id="board"></div>
-          <div id="message"></div>
+            <div class="hudRow">
+              <div class="hudCard">
+                <div class="hudLabel">Sumber input</div>
+                <div class="hudValue" id="lastSource">-</div>
+              </div>
+              <div class="hudCard">
+                <div class="hudLabel">Ronde</div>
+                <div class="hudValue" id="roundNum">1</div>
+              </div>
+              <div class="hudCard">
+                <div class="hudLabel">Sisa</div>
+                <div class="hudValue" id="triesLeft">6</div>
+              </div>
+            </div>
 
-          <div id="nextTimer" class="timer hidden">
-            Ronde berikutnya dalam <span id="timerSec">15</span> detik…
+            <div class="msg" id="msg">Memuat kata...</div>
+            <div class="next" id="next" style="display:none;"></div>
+
+            <div class="tips">
+              <div class="tip"><b>Enter</b> submit</div>
+              <div class="tip"><b>Backspace</b> hapus</div>
+              <div class="tip">Komentar valid: <b>5 huruf</b> (contoh: <b>dapur</b>)</div>
+            </div>
           </div>
-        </main>
-      </main>
+        </div>
 
-      <footer>Tebak kata 5 huruf • Mode Endless</footer>
-    </div>
+        <div class="right">
+          <div class="boardWrap">
+            <div class="board" id="board"></div>
+          </div>
+        </div>
+      </section>
 
-    <script src="script.js"></script>
-  </body>
+      <footer class="footer">
+        <div class="footLeft">
+          <span class="dot"></span>
+          <span>Overlay siap untuk OBS (Browser Source)</span>
+        </div>
+        <div class="footRight" id="hint">Ketik 5 huruf...</div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
